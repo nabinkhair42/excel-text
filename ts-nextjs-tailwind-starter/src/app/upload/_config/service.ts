@@ -1,27 +1,32 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-import axios from 'axios';
+import axios, { AxiosProgressEvent } from 'axios';
 
 import { UploadConfig } from './route';
 
 import { UploadResponse } from '@/types/excel';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const uploadExcelFile = async (file: File, _p0: (progressEvent: any) => void): Promise<UploadResponse> => {
+export const uploadExcelFile = async (
+  file: File,
+  onProgress: (progressEvent: ProgressEvent) => void
+): Promise<UploadResponse> => {
   try {
     const formData = new FormData();
     formData.append('file', file);
 
     const response = await axios.post<UploadResponse>(
-      UploadConfig.EXCEL_UPLOAD, 
+      UploadConfig.EXCEL_UPLOAD,
       formData,
       {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
+        onUploadProgress: (progressEvent: AxiosProgressEvent) => {
+          onProgress(progressEvent as unknown as ProgressEvent);
+        },
       }
     );
 
-    return response.data;
+    return response.data as UploadResponse;
   } catch (error) {
     if (axios.isAxiosError(error)) {
       throw new Error(error.response?.data.message || 'Error uploading file');
