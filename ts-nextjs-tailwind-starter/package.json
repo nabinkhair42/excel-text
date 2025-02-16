@@ -72,5 +72,8 @@
     "**/*.{json,css,scss,md,webmanifest}": [
       "prettier -w"
     ]
+  },
+  "engines": {
+    "node": ">=18.17.0"
   }
 }
