@@ -5,7 +5,8 @@ import { UploadConfig } from './route';
 
 import { UploadResponse } from '@/types/excel';
 
-export const uploadExcelFile = async (file: File): Promise<UploadResponse> => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const uploadExcelFile = async (file: File, _p0: (progressEvent: any) => void): Promise<UploadResponse> => {
   try {
     const formData = new FormData();
     formData.append('file', file);
