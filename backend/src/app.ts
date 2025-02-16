@@ -1,7 +1,7 @@
 import express, { Express } from 'express';
 import cors from 'cors';
-import { setupRoutes } from '@/routes';
-import corsOptions from '@/config/cors.config';
+import { setupRoutes } from './routes';
+import corsOptions from './config/cors.config';
 
 const app: Express = express();
 

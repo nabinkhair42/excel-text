@@ -1,5 +1,5 @@
 import { config } from 'dotenv';
-import { envSchema } from "@/zod/env.zod";
+import { envSchema } from '../zod/env.zod';
 import path from 'path';
 
 // Load .env file

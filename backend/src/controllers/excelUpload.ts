@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import Excel from 'exceljs';
-import { ExcelData, UploadResponse } from '@/types/excel';
-import { logger } from '@/utils/logger';
+import { ExcelData, UploadResponse } from '../types/excel';
+import { logger } from '../utils/logger';
 
 export const ExcelUploadController = async (req: Request, res: Response) => {
   try {

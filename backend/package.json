@@ -4,12 +4,9 @@
   "description": "Express API with TypeScript",
   "main": "dist/server.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "dev": "nodemon",
-    "build": "tsc && tsc-alias",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "eslint . --ext .ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev --files src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "nabinkhair42",

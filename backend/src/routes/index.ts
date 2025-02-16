@@ -1,7 +1,7 @@
 import { Express, Request, Response } from 'express';
-import { HelloController } from '@/controllers/hello';
-import { ExcelUploadController } from '@/controllers/excelUpload';
-import upload from '@/middleware/upload';
+import { HelloController } from '../controllers/hello';
+import { ExcelUploadController } from '../controllers/excelUpload';
+import upload from '../middleware/upload';
 
 export const setupRoutes = (app: Express) => {
   app.get('/', (req: Request, res: Response) => {
